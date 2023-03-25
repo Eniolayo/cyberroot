@@ -37,7 +37,7 @@ module.exports = {
         tight: "1.12rem",
         s: "1.52rem",
         m: "1.8rem",
-        l: "4rem",
+        l: "3.5rem",
       },
       letterSpacing: {
         m: "2px",
@@ -48,7 +48,7 @@ module.exports = {
         "4xl": "40px",
       },
       backgroundImage: {
-        "gradient-primary": `linear-gradient(180deg, rgba(49,61,232,1) 0%, rgba(57,143,207,1) 100%)`,
+        "gradient-primary": `linear-gradient(230deg, rgba(49,61,232,1) 59%, rgba(57,143,207,1) 100%)`,
       },
       dropShadow: {
         "6xl": "5px 7px 11px 0px #000000",

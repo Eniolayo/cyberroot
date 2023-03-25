@@ -28,6 +28,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {\
           "packageLocation": "./",\
           "packageDependencies": [\
+            ["@iconify/react", "virtual:d43d39c69c5b8fc4d63998c856c9f5d19bfe8cd135596607439dd481a32eec937770a957207a0704b495001857fcbc4d006bb53b59bd26d6fd13818207f5aae9#npm:4.1.0"],\
+            ["@netlify/classnames-template-literals", "npm:1.0.3"],\
             ["autoprefixer", "virtual:d43d39c69c5b8fc4d63998c856c9f5d19bfe8cd135596607439dd481a32eec937770a957207a0704b495001857fcbc4d006bb53b59bd26d6fd13818207f5aae9#npm:10.4.14"],\
             ["eslint", "npm:8.36.0"],\
             ["eslint-config-next", "virtual:d43d39c69c5b8fc4d63998c856c9f5d19bfe8cd135596607439dd481a32eec937770a957207a0704b495001857fcbc4d006bb53b59bd26d6fd13818207f5aae9#npm:13.2.4"],\
@@ -144,6 +146,47 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@humanwhocodes-object-schema-npm-1.2.1-eb622b5d0e-a824a1ec31.zip/node_modules/@humanwhocodes/object-schema/",\
           "packageDependencies": [\
             ["@humanwhocodes/object-schema", "npm:1.2.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@iconify/react", [\
+        ["npm:4.1.0", {\
+          "packageLocation": "./.yarn/cache/@iconify-react-npm-4.1.0-8c8c33f959-50de9d5bf1.zip/node_modules/@iconify/react/",\
+          "packageDependencies": [\
+            ["@iconify/react", "npm:4.1.0"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:d43d39c69c5b8fc4d63998c856c9f5d19bfe8cd135596607439dd481a32eec937770a957207a0704b495001857fcbc4d006bb53b59bd26d6fd13818207f5aae9#npm:4.1.0", {\
+          "packageLocation": "./.yarn/__virtual__/@iconify-react-virtual-6584930fec/0/cache/@iconify-react-npm-4.1.0-8c8c33f959-50de9d5bf1.zip/node_modules/@iconify/react/",\
+          "packageDependencies": [\
+            ["@iconify/react", "virtual:d43d39c69c5b8fc4d63998c856c9f5d19bfe8cd135596607439dd481a32eec937770a957207a0704b495001857fcbc4d006bb53b59bd26d6fd13818207f5aae9#npm:4.1.0"],\
+            ["@iconify/types", "npm:2.0.0"],\
+            ["@types/react", null],\
+            ["react", "npm:18.2.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/react",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@iconify/types", [\
+        ["npm:2.0.0", {\
+          "packageLocation": "./.yarn/cache/@iconify-types-npm-2.0.0-faa2398199-029f58542c.zip/node_modules/@iconify/types/",\
+          "packageDependencies": [\
+            ["@iconify/types", "npm:2.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@netlify/classnames-template-literals", [\
+        ["npm:1.0.3", {\
+          "packageLocation": "./.yarn/cache/@netlify-classnames-template-literals-npm-1.0.3-73753d48d3-c64f66d9d3.zip/node_modules/@netlify/classnames-template-literals/",\
+          "packageDependencies": [\
+            ["@netlify/classnames-template-literals", "npm:1.0.3"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -1062,6 +1105,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["cyberroot", "workspace:."],\
+            ["@iconify/react", "virtual:d43d39c69c5b8fc4d63998c856c9f5d19bfe8cd135596607439dd481a32eec937770a957207a0704b495001857fcbc4d006bb53b59bd26d6fd13818207f5aae9#npm:4.1.0"],\
+            ["@netlify/classnames-template-literals", "npm:1.0.3"],\
             ["autoprefixer", "virtual:d43d39c69c5b8fc4d63998c856c9f5d19bfe8cd135596607439dd481a32eec937770a957207a0704b495001857fcbc4d006bb53b59bd26d6fd13818207f5aae9#npm:10.4.14"],\
             ["eslint", "npm:8.36.0"],\
             ["eslint-config-next", "virtual:d43d39c69c5b8fc4d63998c856c9f5d19bfe8cd135596607439dd481a32eec937770a957207a0704b495001857fcbc4d006bb53b59bd26d6fd13818207f5aae9#npm:13.2.4"],\
