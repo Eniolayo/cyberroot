@@ -50,7 +50,7 @@ export default function Button({
 }
 
 const baseStyle = ctl(`
-    rounded-full
+
     font-semibold
     disabled:cursor-not-allowed
 `);
