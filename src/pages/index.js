@@ -143,16 +143,11 @@ function Purpose() {
     </div>
   );
 }
-function ServiceCard({ name, desc }) {
+function ServiceCard({ name, desc, img }) {
   return (
     <div className="w-[362px] h-[352px] mx-auto text-center border bg-primary-cloud border-primary-denim rounded-xl grid gap-5 py-8 cursor-pointer">
-      <div className="w-[89px] h-[89px] relative mx-auto">
-        <Image
-          src="/pen-testing.png"
-          alt="pen-testing"
-          objectFit="contain"
-          fill
-        />
+      <div className="w-[80px] h-[80px] relative mx-auto">
+        <Image src={img} alt={name} objectFit="contain" fill />
       </div>
       <h4 className="text-2xl font-semibold">{name}</h4>
       <p className="w-[85%] mx-auto">{desc}</p>
@@ -196,7 +191,12 @@ function Services() {
       </p>
       <div className="w-[90%] mx-auto my-10 gap-7 justify-between grid grid-cols-[repeat(auto-fit,_minmax(362px,_1fr))] items-center">
         {ServicesItems.map((item) => (
-          <ServiceCard key={item.name} name={item.name} desc={item.desc} />
+          <ServiceCard
+            key={item.name}
+            name={item.name}
+            desc={item.desc}
+            img={item.image}
+          />
         ))}
       </div>
     </>
@@ -253,7 +253,7 @@ function BlogAndNews() {
 }
 function Newsletter() {
   return (
-    <div className="max-w-[887px] text-white py-10 rounded-xl bg-[#3a8fcfce] w-[90%] mx-auto text-center grid gap-3">
+    <div className="max-w-[887px] text-white py-12 rounded-xl bg-[#3a8fcfce] w-[90%] mx-auto text-center grid gap-3">
       <h3 className="text-3xl font-bold">Sign Up For Newsletters</h3>
       <p className="max-w-[453px] mx-auto">
         Stay up-to-date on the latest threats, trends, and best practices in
@@ -270,8 +270,120 @@ function Newsletter() {
     </div>
   );
 }
+function Footer() {
+  return (
+    <div className="w-[90%] mx-auto my-10 flex gap-10 justify-between flex-wrap">
+      <div className="grid gap-3">
+        <Image
+          src="/CyberRoot Logo.png"
+          alt="cyberroot Icon"
+          width={200}
+          height={49}
+          style={{ cursor: "pointer" }}
+        />
+        <p className="max-w-[450px] leading-7">
+          CyberRoot International Ltd is a cyber security consulting and IT
+          firms in Nigeria specializes in Information and intelligence
+          gathering, managed cyber security services, strategic IT consulting
+          and cyber awareness training provider.
+        </p>
+        <div className="flex gap-3">
+          {[
+            "ic:round-facebook",
+            "fe:twitter",
+            "ic:sharp-whatsapp",
+            "ph:instagram-logo",
+            "carbon:logo-youtube",
+          ].map((item) => (
+            <Icon
+              key={item}
+              icon={item}
+              width="32px"
+              className="cursor-pointer hover:scale-110 transition-all"
+            />
+          ))}
+        </div>
+      </div>
+      <div className="grid grid-rows-[1fr_,3fr] min-w-[124px] max-w-[160px]">
+        <h5 className="text-xl font-bold self-center">Quick Links</h5>
+        <ul>
+          {["About Us", "Services", "Contact Us", "FAQ"].map((item) => (
+            <li
+              className="mt-2 cursor-pointer hover:text-primary-blue"
+              key={item}
+            >
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="grid grid-rows-[1fr_,3fr] max-w-[309px] min-[250px]">
+        <h5 className="text-xl font-bold self-center">Get In Touch</h5>
+        <ul>
+          <li className="flex gap-2 items-center mt-2 cursor-pointer">
+            <Icon icon="material-symbols:location-on-outline" width="30px" />
+            <span>Adamolekun Estate Old Take Away, Adebayo, Ado-Ekiti. </span>
+          </li>
+          <li className="flex gap-2 items-center mt-1 cursor-pointer">
+            <Icon icon="material-symbols:call-outline-sharp" width="20px" />
+            <a href="callto:+2348144106279">+(234)8144106279</a>
+          </li>
+          <li className="flex gap-2 items-center mt-1 cursor-pointer">
+            <Icon icon="material-symbols:mail-outline-rounded" width="25px" />
+            <p>
+              <a
+                href="mailto:info@cyberootltd.com?subject=Mail from Website"
+                className="block"
+              >
+                info@cyberootltd.com,
+              </a>
+              <a
+                href="mailto:cyberrootltd@hotmail.com?subject=Mail from Website"
+                className="block"
+              >
+                cyberrootltd@hotmail.com
+              </a>
+            </p>
+          </li>
+        </ul>
+      </div>
+
+      <div className="grid content-start grid-rows-[1fr_,3fr] min-w-[131px] max-w-[160px]">
+        <h5 className="text-xl font-bold self-center">More</h5>
+        <ul>
+          {["Privacy policy", "Terms Of Sources"].map((item) => (
+            <li
+              key={item}
+              className="mt-2 cursor-pointer hover:text-primary-blue"
+            >
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}
+function IntroContent() {
+  return (
+    <div className="bg-[url('/markus.jpg')] bg-gray-800 clippy-dent bg-cover h-[100vh] grid items-center   justify-center">
+      <span className="h-[100vh] w-[100vw] bg-black bg-opacity-60 absolute" />
+      <div className="text-center py-5 relative z-50 text-primary-white">
+        <h2 className={mainSectionTextStyle}>
+          Leading the charge against cyber threats
+        </h2>
+        <p className="w-[566px] mx-auto font-medium text-xl mt-6">
+          Protect your digital assets from cyber criminals with our cutting-edge
+          cybersecurity solutions.{" "}
+        </p>
+        <Button styles={GetInTouchStyles}>Get In Touch</Button>
+      </div>
+    </div>
+  );
+}
 export default function Home() {
   const [changeBg, setChangeBg] = React.useState(false);
+  const [showTopBtn, setShowTopBtn] = React.useState(false);
   const changeBackground = () => {
     if (window.scrollY >= 20) {
       setChangeBg(true);
@@ -281,6 +393,13 @@ export default function Home() {
   };
   React.useEffect(() => {
     window.addEventListener("scroll", changeBackground);
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 400) {
+        setShowTopBtn(true);
+      } else {
+        setShowTopBtn(false);
+      }
+    });
   });
 
   return (
@@ -293,86 +412,14 @@ export default function Home() {
       </Head>
       <main className="relative">
         <Header changeBg={changeBg} />
-        {/*  */}
-        <div className="bg-[url('/markus.jpg')] bg-gray-800 clippy-dent bg-cover h-[100vh] grid items-center   justify-center">
-          <span className="h-[100vh] w-[100vw] bg-black bg-opacity-60 absolute" />
-          <div className="text-center py-5 relative z-50 text-primary-white">
-            <h2 className={mainSectionTextStyle}>
-              Leading the charge against cyber threats
-            </h2>
-            <p className="w-[566px] mx-auto font-medium text-xl mt-6">
-              Protect your digital assets from cyber criminals with our
-              cutting-edge cybersecurity solutions.{" "}
-            </p>
-            <Button styles={GetInTouchStyles}>Get In Touch</Button>
-          </div>
-        </div>
+        <IntroContent />
         <div className="max-w-[1600px] mx-auto">
           <HowWeOperate />
           <Services />
           <Partners />
           <BlogAndNews />
           <Newsletter />
-          <div className="w-[90%] mx-auto my-10 flex">
-            <div className="grid gap-3">
-              <Image
-                src="/CyberRoot Logo.png"
-                alt="cyberroot Icon"
-                width={200}
-                height={49}
-                style={{ cursor: "pointer" }}
-              />
-              <p className="max-w-[450px] leading-7">
-                CyberRoot International Ltd is a cyber security consulting and
-                IT firms in Nigeria specializes in Information and intelligence
-                gathering, managed cyber security services, strategic IT
-                consulting and cyber awareness training provider.
-              </p>
-              <div className="flex gap-3">
-                <Icon
-                  icon="ic:round-facebook"
-                  width="45px"
-                  className="cursor-pointer hover:scale-110 transition-all"
-                />
-                <Icon
-                  icon="fe:twitter"
-                  width="45px"
-                  className="cursor-pointer hover:scale-110 transition-all"
-                />
-                <Icon
-                  icon="ic:sharp-whatsapp"
-                  width="45px"
-                  className="cursor-pointer hover:scale-110 transition-all"
-                />
-                <Icon
-                  icon="ph:instagram-logo"
-                  width="45px"
-                  className="cursor-pointer hover:scale-110 transition-all"
-                />
-                <Icon
-                  icon="carbon:logo-youtube"
-                  width="45px"
-                  className="cursor-pointer hover:scale-110 transition-all"
-                />
-              </div>
-            </div>
-            <div className="grid content-start">
-              <h5>Quick Links</h5>
-              <ul>
-                {["About Us", "Services", "Contact Us", "FAQ"].map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-            <div className="grid content-start">
-              <h5>More</h5>
-              <ul>
-                {["Privacy policy", "Terms Of Sources"].map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
+          <Footer />
         </div>
       </main>
     </>
@@ -387,27 +434,27 @@ const ServicesItems = [
   {
     name: "Vulnerability Assessment",
     desc: "We offer comprehensive vulnerability assessment services to help identify potential weaknesses in your organization's IT infrastructure.",
-    image: "/pen-testing.png",
+    image: "/vuneralibilty-assessement.png",
   },
   {
     name: "Web Development Training",
     desc: "We provide web development training programs designed to equip individuals with the necessary skills to create dynamic and responsive websites.",
-    image: "/pen-testing.png",
+    image: "/web-dev.png",
   },
   {
     name: "Ethical Hacking Training",
     desc: "We offer professional ethical hacking training programs to assist professionals in developing the skills needed to detect and resolve possible cybersecurity risks and vulnerabilities.",
-    image: "/pen-testing.png",
+    image: "/hacking-icon-5 1.png",
   },
   {
     name: "Cyber Security awareness training",
     desc: "We provide comprehensive cyber security awareness training for individuals and organizations to help prevent cyber attacks and safeguard sensitive data.",
-    image: "/pen-testing.png",
+    image: "/training_icon.png",
   },
   {
     name: "Cyber Security Consultancy",
     desc: "Our company offers expert cyber security consultancy services to help organizations assess, plan, and implement robust security strategies to protect against cyber threats.",
-    image: "/pen-testing.png",
+    image: "/cyber-security-consult.png",
   },
 ];
 const mainSectionTextStyle = ctl(`
