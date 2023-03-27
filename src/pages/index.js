@@ -13,7 +13,8 @@ const inter = Noto_Sans({
   style: ["normal", "italic"],
 });
 
-function Header({ changeBg }) {
+function Header({ changeBg, isOpen, setIsOpen }) {
+  const genericHamburgerLine = `h-1 w-6 my-1 rounded-full bg-white transition ease transform duration-300`;
   return (
     <header
       className={`fixed top-0 z-[150]  mx-auto w-full py-4 ${
@@ -40,6 +41,31 @@ function Header({ changeBg }) {
           <li className="cursor-pointer ">Blog</li>
         </ul>
         <Button styles={ContactUsStyles}>Contact Us</Button>
+        {/* <button
+          className="flex flex-col h-12 w-12 border-2
+           border-primary-white rounded justify-center items-center group md:hidden"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          <div
+            className={`${genericHamburgerLine} ${
+              isOpen
+                ? "rotate-45 translate-y-3 group-hover:opacity-100"
+                : "group-hover:opacity-100"
+            }`}
+          />
+          <div
+            className={`${genericHamburgerLine} ${
+              isOpen ? "opacity-0" : "group-hover:opacity-100"
+            }`}
+          />
+          <div
+            className={`${genericHamburgerLine} ${
+              isOpen
+                ? "-rotate-45 -translate-y-3 group-hover:opacity-100"
+                : "group-hover:opacity-100"
+            }`}
+          />
+        </button> */}
       </div>
     </header>
   );
@@ -48,7 +74,12 @@ function AboutUs() {
   return (
     <div className="flex w-[90%] mx-auto my-5 py-9 gap-10 items-center justify-between">
       <div className="w-[45%] h-[280px] relative">
-        <Image src="/markus.jpg" alt="markus" fill objectFit="cover" />
+        <Image
+          src="/markus.jpg"
+          alt="markus"
+          fill
+          style={{ objectFit: "cover" }}
+        />
       </div>
       <div className="w-[45%] grid gap-7">
         <h4 className="text-2xl font-medium tracking-m">About Us</h4>
@@ -75,7 +106,12 @@ function WhyChooseUs() {
   return (
     <div className="flex w-[90%] flex-row-reverse mx-auto my-5 py-9 gap-10 items-center justify-between">
       <div className="w-[45%] h-[280px] relative">
-        <Image src="/markus.jpg" alt="markus" fill objectFit="cover" />
+        <Image
+          src="/markus.jpg"
+          alt="markus"
+          fill
+          style={{ objectFit: "cover" }}
+        />
       </div>
       <div className="w-[45%] grid gap-7">
         <h4 className="text-2xl font-medium tracking-m">Why Choose Us</h4>
@@ -113,10 +149,15 @@ function Purpose() {
   return (
     <div className="flex w-[90%] mx-auto my-5 py-9 gap-10 items-center justify-between">
       <div className="w-[45%] h-[280px] relative">
-        <Image src="/markus.jpg" alt="markus" fill objectFit="cover" />
+        <Image
+          src="/markus.jpg"
+          alt="markus"
+          fill
+          style={{ objectFit: "cover" }}
+        />
       </div>
       <div className="w-[45%] grid gap-7">
-        <h4 className="text-2xl font-medium tracking-m">Purpose</h4>
+        <h4 className="text-2xl font-medium tracking-m">Mission & Vision</h4>
         <p className="font-bold text-4xl">
           Providing cyber skills for{" "}
           <span className="text-primary-blue">a secure future</span>
@@ -229,7 +270,7 @@ function BlogAndNews() {
                 src="/blogPost.png"
                 alt="blogPost"
                 fill
-                objectFit="cover"
+                style={{ objectFit: "cover" }}
               />
             </div>
             <div className="p-5 grid gap-2">
@@ -253,7 +294,7 @@ function BlogAndNews() {
 }
 function Newsletter() {
   return (
-    <div className="max-w-[887px] text-white py-12 rounded-xl bg-[#3a8fcfce] w-[90%] mx-auto text-center grid gap-3">
+    <div className="max-w-[887px] text-white py-16 rounded-xl bg-[#3a8fcfce] w-[90%] my-36 mx-auto text-center grid gap-3">
       <h3 className="text-3xl font-bold">Sign Up For Newsletters</h3>
       <p className="max-w-[453px] mx-auto">
         Stay up-to-date on the latest threats, trends, and best practices in
@@ -272,96 +313,108 @@ function Newsletter() {
 }
 function Footer() {
   return (
-    <div className="w-[90%] mx-auto my-10 flex gap-10 justify-between flex-wrap">
-      <div className="grid gap-3">
-        <Image
-          src="/CyberRoot Logo.png"
-          alt="cyberroot Icon"
-          width={200}
-          height={49}
-          style={{ cursor: "pointer" }}
-        />
-        <p className="max-w-[450px] leading-7">
-          CyberRoot International Ltd is a cyber security consulting and IT
-          firms in Nigeria specializes in Information and intelligence
-          gathering, managed cyber security services, strategic IT consulting
-          and cyber awareness training provider.
-        </p>
-        <div className="flex gap-3">
-          {[
-            "ic:round-facebook",
-            "fe:twitter",
-            "ic:sharp-whatsapp",
-            "ph:instagram-logo",
-            "carbon:logo-youtube",
-          ].map((item) => (
-            <Icon
-              key={item}
-              icon={item}
-              width="32px"
-              className="cursor-pointer hover:scale-110 transition-all"
-            />
-          ))}
+    <>
+      <div className="w-[90%] mx-auto my-10 flex gap-10 justify-between flex-wrap">
+        <div className="grid gap-3">
+          <Image
+            src="/CyberRoot Logo.png"
+            alt="cyberroot Icon"
+            width={200}
+            height={49}
+            style={{ cursor: "pointer" }}
+          />
+          <p className="max-w-[450px] leading-7">
+            CyberRoot International Ltd is a cyber security consulting and IT
+            firms in Nigeria specializes in Information and intelligence
+            gathering, managed cyber security services, strategic IT consulting
+            and cyber awareness training provider.
+          </p>
+          <div className="flex gap-3">
+            {[
+              "ic:round-facebook",
+              "fe:twitter",
+              "ic:sharp-whatsapp",
+              "ph:instagram-logo",
+              "carbon:logo-youtube",
+            ].map((item) => (
+              <Icon
+                key={item}
+                icon={item}
+                width="32px"
+                className="cursor-pointer hover:scale-110 transition-all"
+              />
+            ))}
+          </div>
+        </div>
+        <div className="grid grid-rows-[1fr_,3fr] min-w-[124px] max-w-[160px]">
+          <h5 className="text-xl font-bold self-center">Quick Links</h5>
+          <ul>
+            {["About Us", "Services", "Contact Us", "FAQ"].map((item) => (
+              <li
+                className="mt-2 cursor-pointer hover:text-primary-blue"
+                key={item}
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="grid grid-rows-[1fr_,3fr] max-w-[309px] min-[250px]">
+          <h5 className="text-xl font-bold self-center">Get In Touch</h5>
+          <ul>
+            <li className="flex gap-2 items-center mt-2 cursor-pointer">
+              <Icon icon="material-symbols:location-on-outline" width="30px" />
+              <span>Adamolekun Estate Old Take Away, Adebayo, Ado-Ekiti. </span>
+            </li>
+            <li className="flex gap-2 items-center mt-1 cursor-pointer">
+              <Icon icon="material-symbols:call-outline-sharp" width="20px" />
+              <a href="callto:+2348144106279">+(234)8144106279</a>
+            </li>
+            <li className="flex gap-2 items-center mt-1 cursor-pointer">
+              <Icon icon="material-symbols:mail-outline-rounded" width="25px" />
+              <p>
+                <a
+                  href="mailto:info@cyberootltd.com?subject=Mail from Website"
+                  className="block"
+                >
+                  info@cyberootltd.com,
+                </a>
+                <a
+                  href="mailto:cyberrootltd@hotmail.com?subject=Mail from Website"
+                  className="block"
+                >
+                  cyberrootltd@hotmail.com
+                </a>
+              </p>
+            </li>
+          </ul>
+        </div>
+
+        <div className="grid content-start grid-rows-[1fr_,3fr] min-w-[131px] max-w-[160px]">
+          <h5 className="text-xl font-bold self-center">More</h5>
+          <ul>
+            {["Privacy policy", "Terms Of Sources"].map((item) => (
+              <li
+                key={item}
+                className="mt-2 cursor-pointer hover:text-primary-blue"
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
-      <div className="grid grid-rows-[1fr_,3fr] min-w-[124px] max-w-[160px]">
-        <h5 className="text-xl font-bold self-center">Quick Links</h5>
-        <ul>
-          {["About Us", "Services", "Contact Us", "FAQ"].map((item) => (
-            <li
-              className="mt-2 cursor-pointer hover:text-primary-blue"
-              key={item}
-            >
-              {item}
-            </li>
-          ))}
-        </ul>
+      <div className="border-[#388dcf81] border-t-2">
+        <div className="w-[90%] mx-auto  py-5">
+          <div className="flex gap-1">
+            <p>Copyright</p>
+            &copy;
+            <p>{new Date().getFullYear()}</p>
+            <p>All Rights Reserved.</p>
+          </div>
+        </div>
       </div>
-      <div className="grid grid-rows-[1fr_,3fr] max-w-[309px] min-[250px]">
-        <h5 className="text-xl font-bold self-center">Get In Touch</h5>
-        <ul>
-          <li className="flex gap-2 items-center mt-2 cursor-pointer">
-            <Icon icon="material-symbols:location-on-outline" width="30px" />
-            <span>Adamolekun Estate Old Take Away, Adebayo, Ado-Ekiti. </span>
-          </li>
-          <li className="flex gap-2 items-center mt-1 cursor-pointer">
-            <Icon icon="material-symbols:call-outline-sharp" width="20px" />
-            <a href="callto:+2348144106279">+(234)8144106279</a>
-          </li>
-          <li className="flex gap-2 items-center mt-1 cursor-pointer">
-            <Icon icon="material-symbols:mail-outline-rounded" width="25px" />
-            <p>
-              <a
-                href="mailto:info@cyberootltd.com?subject=Mail from Website"
-                className="block"
-              >
-                info@cyberootltd.com,
-              </a>
-              <a
-                href="mailto:cyberrootltd@hotmail.com?subject=Mail from Website"
-                className="block"
-              >
-                cyberrootltd@hotmail.com
-              </a>
-            </p>
-          </li>
-        </ul>
-      </div>
-
-      <div className="grid content-start grid-rows-[1fr_,3fr] min-w-[131px] max-w-[160px]">
-        <h5 className="text-xl font-bold self-center">More</h5>
-        <ul>
-          {["Privacy policy", "Terms Of Sources"].map((item) => (
-            <li
-              key={item}
-              className="mt-2 cursor-pointer hover:text-primary-blue"
-            >
-              {item}
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
+    </>
   );
 }
 function IntroContent() {
@@ -384,6 +437,8 @@ function IntroContent() {
 export default function Home() {
   const [changeBg, setChangeBg] = React.useState(false);
   const [showTopBtn, setShowTopBtn] = React.useState(false);
+  const [isOpen, setIsOpen] = React.useState(false);
+
   const changeBackground = () => {
     if (window.scrollY >= 20) {
       setChangeBg(true);
@@ -411,7 +466,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="relative">
-        <Header changeBg={changeBg} />
+        <Header changeBg={changeBg} isOpen={isOpen} setIsOpen={setIsOpen} />
         <IntroContent />
         <div className="max-w-[1600px] mx-auto">
           <HowWeOperate />
